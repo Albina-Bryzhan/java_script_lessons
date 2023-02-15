@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #3</title>
+</head>
+<body>
+   <h1>Задача 3</h1>
+   <p>Випадковим чином генерується число від 1 до 5. Спробуйте вгадати число за 2 спроби.</p>
+
+      <script>
+         // 1.Вводимо необхідні дані
+         const minNum = 1
+         const maxNum = 5
+         let randomNum = minNum + Math.floor(Math.random() * (maxNum - minNum +1))
+         evenNum = randomNum % 2
+          // 2.Знаходимо і виводимо результат
+          document.write(`Сгенероване число - ${randomNum} <br>`)
+          if (evenNum === 0) 
+            document.write(`1. Ваше число парне <br>`) 
+         else 
+            document.write(`1. Ваше число непарне <br>`)       
+
+         if (evenNum === 0 && randomNum < 3) 
+            document.write(`2. Ваше число менше 3 і дорівнює 2 <br>`)
+         else if (evenNum === 0 && randomNum > 3) 
+            document.write(`2. Ваше число більше 3 і дорівнює 4 <br>`)
+         else if (evenNum !== 0 && randomNum < 3) 
+            document.write(`2. Ваше число менше 3 і дорівнює 1 <br>`)
+         else if (evenNum !== 0 && randomNum > 3) 
+            document.write(`2. Ваше число більше 3 і дорівнює 5 <br>`)
+         else 
+            document.write(`2. Ваше число - 3 <br>`)        
+      </script>
+</body>
+</html>

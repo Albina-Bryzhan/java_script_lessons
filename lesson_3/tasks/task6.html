@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #6</title>
+</head>
+<body>
+   <h1>Задача 6</h1>
+   <p>З клавіатури вводиться номер дня тижня. Вивести на екран назву дня. </p>
+
+      <script>
+         // 1.Вводимо необхідні дані
+         let numDayWeek = parseInt(prompt('Введіть номер дня тижня, як це прийнято в Україні', '1'))
+         const monday = 1
+         const tuesday = 2
+         const wednesday = 3
+         const thursday = 4
+         const friday = 5
+         const saturday = 6
+         const sunday = 7
+          // 2.Знаходимо і виводимо результат
+          document.write(`Номер дня тижня - ${numDayWeek} <br>`)
+          
+         if (numDayWeek === monday) 
+            document.write(`День тижня - понеділок <br>`) 
+         else if (numDayWeek === tuesday) 
+            document.write(`День тижня - вівторок <br>`) 
+         else if (numDayWeek === wednesday) 
+            document.write(`День тижня - середа <br>`) 
+         else if (numDayWeek === thursday) 
+            document.write(`День тижня - четвер <br>`) 
+         else if (numDayWeek === friday) 
+            document.write(`День тижня - п"ятниця <br>`) 
+         else if (numDayWeek === saturday) 
+            document.write(`День тижня - суббота <br>`)
+         else if (numDayWeek === sunday) 
+            document.write(`День тижня - неділя <br>`)
+         else 
+            document.write(`Нащастя у нас тільки 7 днів у тижні. Спробуйте ввести число від 1 до 7)) <br>`) 
+      </script>
+</body>
+</html>
