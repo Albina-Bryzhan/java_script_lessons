@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #15</title>
+</head>
+<body>
+   <h1>Задача 15</h1>
+   <p>Користувач поступово вводить показники температури протягом року. Знайти середню температуру.</p>
+    
+      <script>
+             
+         const monthQuontity = 12
+         let sumOfTemperatures = 0
+         let averageAnnualTemperature = 0
+         
+         for (let i = 0; i < monthQuontity; i++) {
+             let userAirTemperature = parseFloat(prompt(`Введіть будь-ласка температуру повітря за ${i + 1} місяць, градуси Цельсія`)) 
+            if (isNaN(userAirTemperature))  
+               alert(`Введіть коректне значення температури`)
+            else { 
+            sumOfTemperatures = sumOfTemperatures + userAirTemperature
+            }
+         }
+         averageAnnualTemperature = sumOfTemperatures / monthQuontity
+         alert(`Середня температура за ${monthQuontity} місяців складає ${averageAnnualTemperature}`)
+        
+         
+      </script>
+</body>
+</html>

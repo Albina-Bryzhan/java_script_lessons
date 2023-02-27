@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #11</title>
+</head>
+<body>
+   <h1>Задача 11</h1>
+   <p>Знайти суму 5 непарних чисел, що знаходяться між заданими користувачем числами.</p>
+
+      <script>
+         // 1.Вводимо необхідні дані 
+         const minNum = parseInt(prompt('Введіть будь-ласка мінімальне число діапазону'))
+         const maxNum = parseInt(prompt('Введіть будь-ласка максимальне число діапазону'))
+
+         // const maxOddNum = 5
+         // let sumOddNum = 0
+         // let i = minNum + 1
+         // let counter = 0
+         
+         // перевіряємо чи справді minNum є мінімальним. Валідація даних.
+        if (minNum > maxNum){
+         const temp = minNum
+         minNum = maxNum
+         maxNum = temp
+        }
+
+      //   Знаходимо і виводимо  результат
+         // while (i < maxNum && counter < maxOddNum) {
+         //    if (i % 2 !== 0) 
+         //       sumOddNum += i
+         //       counter++
+         //       i++
+         // }
+         let currentNum = minNum + 1
+          let oddNumbersCounter = 0,
+          totalSummNumber = 0
+
+        for ( let currentNum = minNum;   currentNum <= maxNum && oddNumbersCounter < 5;  currentNum++ ) {
+          if (currentNum % 2 !== 0) {
+            totalSummNumber += currentNum
+            oddNumbersCounter++
+          }
+        }
+        
+      document.write(`Сума 5 непарних чисел у діапазоні між ${minNum} та ${maxNum} = ${totalSummNumber}`) 
+
+
+      </script>
+</body>
+</html>

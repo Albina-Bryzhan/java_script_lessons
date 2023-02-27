@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #13</title>
+</head>
+<body>
+   <h1>Задача 13</h1>
+   <p>Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. Маючи К снарядів користувач намагається потопити корабель.</p>
+    
+
+      <script>
+         // 1.Вводимо необхідні дані
+        
+        const maxN = parseInt(prompt('Введіть будь-ласка кількість клітинок по горизонталі N')) 
+        const maxM = parseInt(prompt('Введіть будь-ласка кількість клітинок по вертикалі M')) 
+      
+        const minN = 1
+        const minM = 1
+      
+      let placeShipN = minN + Math.floor(Math.random() * (maxN - minN + 1))
+      let placeShipM = minM + Math.floor(Math.random() * (maxM - minM + 1))
+
+
+      const K =  parseInt(prompt('Введіть будь-ласка кількість снарядів')) 
+           
+                 
+      // 2.Знаходимо і виводимо результат
+         
+      for (let i = 0; i < K; i++) {
+         let shotN =  parseInt(prompt('Введіть будь-ласка номер клітинки по горизонталі N')) 
+          let shotM =  parseInt(prompt('Введіть будь-ласка номер клітинки по вертикалі M'))  
+
+          if (shotN === placeShipN && shotM === placeShipM) 
+         document.write(
+      `<h2>Ви влучили! Корабель знаходився:  ${placeShipN}:${placeShipM}</h2>`
+         )
+      else 
+       document.write(
+      `<h2>Ви не влучили! Корабель знаходився:  ${placeShipN}:${placeShipM}</h2>`
+         ) 
+      }
+      document.write(result)
+
+     
+
+      </script>
+</body>
+</html>

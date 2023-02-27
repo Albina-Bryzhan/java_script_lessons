@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #10</title>
+</head>
+<body>
+   <h1>Задача 10</h1>
+   <p>Знайти суму всіх непарних чисел, що знаходяться між заданими користувачем числами.</p>
+
+      <script>
+         // 1.Вводимо необхідні дані 
+         let minNum = parseInt(prompt('Введіть будь-ласка мінімальне число діапазону'))
+         let maxNum = parseInt(prompt('Введіть будь-ласка максимальне число діапазону'))
+
+         let sumOddNum = 0
+         let oddNum = minNum + 1
+         
+         // 2.Знаходимо і виводимо результат
+        
+         while (oddNum < maxNum) {
+            if (oddNum % 2 !== 0) 
+         sumOddNum += oddNum
+         oddNum++
+         }
+        
+      document.write(`Сума непарних чисел у діапазоні між ${minNum} та ${maxNum} = ${sumOddNum}`) 
+
+
+      </script>
+</body>
+</html>
+
+ 

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #12</title>
+</head>
+<body>
+   <h1>Задача 12</h1>
+   <p>Ігровий автомат. Випадково вибираємо зображення у 3 позиціях. Вибір у кожній позиції вибирається як одне з чотирьох зображень. Вивести ці зображення і повідомити виграш користувача (три перших зображення 100 грн, три других – 200, три третіх – 500, три четвертих зображення – 1000грн). Використати цикли і switch (для вибору зображення за номером).</p>
+    <!-- Ця задача для мене була надскладна. Це - не моє рішення. Я її переписала у колеги((-->
+
+      <script>
+         // 1.Вводимо необхідні дані 
+         const maxValue = 3
+         let counter = 0
+         let positionOne, positionTwo, positionThree 
+         let prize
+     
+                 
+ // 2.Знаходимо і виводимо результат
+         for (let i = 0; i < maxValue; i++) {
+    let randomPosition = 1 + Math.floor(Math.random() * (maxValue + 1))
+    document.write(`<img src="/img/${randomPosition}.jpg">`);
+        counter++;
+        if (counter == 1) {
+          positionOne = randomPosition;
+        }
+        if (counter == 2) {
+          positionTwo = randomPosition;
+        }
+        if (counter == 3) {
+          positionThree = randomPosition;
+        }
+       
+    }
+
+    
+    if (positionOne === 1 && positionTwo === 1 && positionThree === 1)
+    prize = 1
+    else if (positionOne === 2 && positionTwo === 2 && positionThree === 2)
+     prize = 2
+    else if (positionOne === 3 && positionTwo === 3 && positionThree === 3)
+     prize = 3
+    else if (positionOne === 4 && positionTwo === 4 && positionThree === 4)
+    prize = 4
+    
+
+     let result 
+     switch (prize) {
+        case 1:
+          result = "Вітаємо! Ви виграли 100грн!";
+          break;
+        case 2:
+          result = "Вітаємо! Ви виграли 200грн!";
+          break;
+        case 3:
+          result = "Вітаємо! Ви виграли 500грн!";
+          break;
+        case 4:
+          result = "Вітаємо! Ви виграли 1000грн!";
+          break;
+        default:
+          result = "Вибачте, але цого разу вам не пощастило. Спробуйте ще!";
+      }
+
+        //3. Виведення результату
+       document.write(`<br><h2>${result}</h2>`); 
+        
+        
+        
+      
+
+
+      </script>
+</body>
+</html>

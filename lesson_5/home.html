@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //====================================
+      //Задача 0. Поступово вводяться вартості 7 товарів. Знайти загальну вартість
+      // let price
+      // let totalPrice = 0
+
+      // 1)Розв"язок з використанням while
+      // let num = 1
+      // while (num <= 7) {
+      //   price = parseFloat(prompt(`Введіть вартість ${num}  товару`))
+      //   totalPrice = totalPrice + price
+      //   num++
+      // }
+
+      //2) Розв"язок з викристанням for
+      // for (let num = 1; num <= 7; num++) {
+      //   price = parseFloat(prompt(`Введіть вартість ${num}  товару`))
+      //   totalPrice = totalPrice + price
+      // }
+
+      // document.write(`Загальна вартість ${totalPrice}`)
+      // ==========================================================
+      // ==========================================================
+      //Задача 1. 15 разів вивести "Hello"
+      //Розв"язок з використанням while
+      //   let num = 1
+      //   while (num <= 15) {
+      //     document.write('Hello')
+      //     num++
+      //   }
+      //Розв"язок з використанням for
+      //   for (let num = 0; num < 15; num++) {
+      //     document.write('Hello')
+      //   }
+      //   let pass
+      //   for (let i = 0; (i < 3) && (pass !== '123'); i++) {
+      //     pass = prompt('Password')
+      //   }
+      //=====================================
+      //Задача 2. Користувач вводить пароль. Правильний пароль "123". Дати 3 спроби для введення паролю
+      //   const correctPassword = '123'
+      //   let pass
+      //   let i = 0
+      //   while (i < 3 && pass !== correctPassword) {
+      //     pass = prompt('Password')
+      //     i++
+      //   }
+      //
+      //   if(pass === correctPassword)
+      //      document.write('Welcome')
+      //   else
+      //      document.write('The password is incorrect')
+      //=====================================================
+      //Задача 3. З клавіатури вводяться два числа N i M (N<M). Вивести а екран числа
+      // N---M
+      // N+1 --- M-1
+      // N+2 --- M-2
+      // N+3 --- M-3
+      //1)Розв"язок з використанням while
+      //   let n = parseInt(prompt('N='))
+      //   let m = parseInt(prompt('M='))
+
+      //   while (n < m) {
+      //     document.write(`${n} - ${m}<br>`)
+      //     n++
+      //     m--
+      //   }
+
+      //2) Розв"язок з використанням for
+      //   let n = parseInt(prompt('N='))
+      //   let m = parseInt(prompt('M='))
+      //   for (; n < m; n++, m--) {
+      //     document.write(`${n} - ${m}<br>`)
+      //   }
+
+      //=====================================================
+      //Задача 4. Вивести усі покази далекоміра від 00 до 99
+      //   for (let c1 = 0; c1 <= 9; c1++) {
+      //     for (let c2 = 0; c2 <= 9; c2++) {
+      //       document.write(`${c1} - ${c2}<br>`)
+      //     }
+      //   }
+      //============================================================
+       // Задача 5. Оленка має 0 грн. і хоче назбирати на телефон (10000 грн.). Для цього
+      // кожного разу допомагає мамі і отримує
+      // гонорар - випадкова величина від 1 до 200 грн. Підрахувати скільки разів треба
+      // допомагати Оленці поки не назбирає
+      // на телефон.
+
+      //   const phonePrice = 10000
+      //   let money = 0
+      //   const minPayment = 1,
+      //     maxPayment = 200
+      //   let counter = 0
+
+      //   do {
+      //     const payment =
+      //       minPayment + Math.floor(Math.random() * (maxPayment - minPayment + 1))
+      //     money += payment
+      //     counter++
+      //     document.write(`money = ${money}<br>`)
+      //   } while (money < phonePrice)
+
+      //   document.write(`Оленка назбирала на телефон за ${counter} спроб`)
+
+      //==============================================
+      // Задача 6. Оленка має М грн. (вводиться з клавіатури) і хоче назбирати на телефон
+      // (10000 грн.). Для цього кожного разу
+      // допомагає мамі і отримує гонорар - випадкова величина від 1 до 200 грн. Підрахувати
+      // скільки разів треба допомагати Оленці поки не назбирає на телефон.
+
+      //   const phonePrice = 10000
+      //   const minPayment = 1,
+      //     maxPayment = 200
+      //   let counter = 0
+      //   let M = parseFloat(prompt('M='))
+      //   let money = M
+      //   while (money < phonePrice) {
+      //     const payment =
+      //       minPayment + Math.floor(Math.random() * (maxPayment - minPayment + 1))
+      //     money += payment
+      //     counter++
+      //     document.write(`money = ${money}<br>`)
+      //   }
+
+      //   document.write(`Оленка назбирала на телефон за ${counter} спроб`)
+
+      //=============================
+      // Задача 7. Поступово вводити 10 цілих чисел і знайти їх суму. Якщо буде введено
+      // некоректне число, то припинити знаходження суми.
+
+      //   let sum = 0
+      //   for (let i = 0; i < 10; i++) {
+      //     let num = parseInt(prompt('Number = '))
+      //     //isFinite(25) - true
+      //     //isFinite(NaN) - false
+      //     //isFinite(+Infinity) - false
+      //     //isFinite(-Infinity) - false
+      //     if (! isFinite(num)) break
+      //     // sum += num
+      //     sum = sum + num
+      //   }
+      //   document.write(`Sum = ${sum}`)
+
+      //==============================================
+      //Задача 8. З клавіатури вводяться поступово двоцифрові числа. Знаходимо їх добуток поки
+      //не буде введено 0.
+      //1)Розв"язко з використанням do-while
+      //   let product = 1
+      //   let num
+      //   do {
+      //     num = parseInt(prompt('Number = '))
+      //     if (num != 0) product *= num
+      //   } while (num != 0)
+
+      //2)Розв"язко з використанням while
+      // let product = 1
+      //   let num = 1
+      //   while (num != 0) {
+      //     num = parseInt(prompt('Number = '))
+      //     if (num != 0) product *= num
+      //   }
+
+      //3)Ще один розв"язок з використанням while
+      // let product = 1
+      //   let num = 1
+      //   while (num != 0) {
+      //     product *= num
+      //     num = parseInt(prompt('Number = '))
+      //   }
+
+      //   document.write(`Product = ${product}`)
+
+      //===========================
+      //Задача 9. З клавіатури вводяться числа до тих пір, поки не буде введено 3 парних.
+
+      // let sum = 0
+      // let evenNumber = 0
+      // const maxEvenNumber = 3
+      // do {
+      //   const num = parseInt(prompt('Num = '))
+      //   sum += num
+      //   if (num % 2 === 0) evenNumber++
+      // } while (evenNumber < maxEvenNumber)
+      // document.write(`Sum = ${sum}`)
+    </script>
+  </body>
+</html>

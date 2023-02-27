@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #9</title>
+</head>
+<body>
+   <h1>Задача 9</h1>
+   <p>Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати confirm).</p>
+
+      <script>
+         // 1.Вводимо необхідні дані 
+         let minNum = parseInt(prompt('Введіть будь-ласка мінімальне число діапазону, в якому я повинен вгадати число'))
+         let maxNum = parseInt(prompt('Введіть будь-ласка максимальне число діапазону, в якому я повинен вгадати число'))
+
+         let randomNum = minNum + Math.floor(Math.random() * (maxNum - minNum +1))
+
+         let guessNum
+         let attempt = 0
+         let allowableMaximum = + Infinity
+         // 2.Знаходимо і виводимо результат
+        
+         mainLoop: do {
+            guessNum = confirm(`Ви загадали число ${randomNum}?`)
+            randomNum = minNum + Math.floor(Math.random() * (maxNum - minNum +1))
+            attempt++
+
+             if (guessNum)
+               document.write('Ооо, я вгадав!') 
+            else   
+               continue mainLoop
+               
+         } while (attempt < allowableMaximum && !guessNum);
+
+        
+       
+      </script>
+</body>
+</html>
