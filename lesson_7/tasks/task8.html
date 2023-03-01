@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #8</title>
+</head>
+<body>
+   <h1>Задача 8</h1>
+   <p>Створити функцію, яка виводить банер (у функцію передаються: зображення, заголовок та посилання, куди переходимо при кліку на зображення (тег img повинен знаходитись у середині тега a: </p>
+   <a href=""></a>
+      <script>
+// посилання, куди переходимо при кліку на зображення у мене не вийшло
+		function getBaner() {
+         const banerTitle = prompt('Введіть заголовок вашого банеру')
+         const banerImg = prompt('Введіть лінк на вашу картинку')
+        
+         document.write(`<h1>${banerTitle}</h1><br>`)
+         document.write(`<a href="${banerImg}"><img src="${banerImg}" alt="Image"></a>`)
+			return banerTitle
+         return banerImg
+
+		}
+
+		getBaner()
+
+
+   
+      </script>
+</body>
+</html>

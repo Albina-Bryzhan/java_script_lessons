@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #4</title>
+</head>
+<body>
+   <h1>Задача 4</h1>
+   <p>Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: кількість парних, кількість додатних, кількість більших за 100.</p>
+      <script>
+// Не додумалась як в одну функцію все впихнути, зробила три
+      function getEvenNum(c1, c2, c3) {
+        let quontityOfEvenNum = 0
+         if (c1 % 2 === 0) quontityOfEvenNum += 1
+         if (c2 % 2 === 0) quontityOfEvenNum += 1
+         if (c3 % 2 === 0) quontityOfEvenNum += 1
+         return quontityOfEvenNum}
+        
+      function getPositiveNum(c1, c2, c3){
+      let quontityOfPositiveNum = 0
+      if (c1 > 0) quontityOfPositiveNum +=1
+      if (c2 > 0) quontityOfPositiveNum +=1
+      if (c3 > 0) quontityOfPositiveNum +=1
+      return quontityOfPositiveNum
+      }
+
+      function getNumMore100(c1, c2, c3) {
+         let quontityOfNumMore100 = 0
+         if (c1 > 100) quontityOfNumMore100 += 1
+         if (c2 > 100) quontityOfNumMore100 += 1
+         if (c3 > 100) quontityOfNumMore100 += 1
+         return quontityOfNumMore100 
+      }                 
+      
+   const c1 = parseFloat(prompt('C1 = '))
+   const c2 = parseFloat(prompt('C2 = '))
+   const c3 = parseFloat(prompt('C3 = '))
+
+   const evenResults = getEvenNum(c1, c2, c3)
+   const positiveResults = getPositiveNum(c1, c2, c3)
+   const resultOfNumMore100 = getNumMore100(c1, c2, c3)
+   
+   document.write(`<p>Введені числа: ${c1}, ${c2}, ${c3}</p>`)
+   document.write(`<p>1) Кількість парних чисел: ${evenResults}</p>`)
+   document.write(`<p>2) Кількість додатних чисел: ${positiveResults}</p>`)
+   document.write(`<p>3) Кількість чисел більша за 100: ${resultOfNumMore100}</p>`)
+   
+
+      </script>
+</body>
+</html>

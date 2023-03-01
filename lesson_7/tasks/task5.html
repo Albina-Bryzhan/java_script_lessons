@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #5</title>
+</head>
+<body>
+   <h1>Задача 5</h1>
+   <p>Створити окремі функції, які переводять:</p>
+   <p>1) Сантиметри у дюйми;</p>
+   <p>2) Кілограми у фунти;</p>
+   <p>3)  Кілометри у милі.</p>
+
+      <script>
+
+      function getCmToInch(cm) {
+        const inch = 2.54    
+         return cm * inch
+      }
+        
+      function getKgToPound(kg) {
+        const pound = 2.20462    
+         return kg * pound
+      }
+
+     function getKmToMile(km) {
+        const mile = 1.61   
+         return km * mile
+      }          
+      
+   const cm = parseFloat(prompt('Введіть число, кількість cm = '))
+   const kg = parseFloat(prompt('Введіть число, кількість kg = '))
+   const km = parseFloat(prompt('Введіть число, кількість km = '))
+
+   const cmToInch = getCmToInch(cm)
+   const kgToPound = getKgToPound(kg)
+   const kmToMile = getKmToMile(km)
+
+   document.write(`<p style='text-decoration: underline;'>Відповідь:</p>`)
+   document.write(`<p>1) В ${cm} сантиметрах  ${cmToInch} дюймів</p>`)
+   document.write(`<p>2) В ${kg} килограмах  ${kgToPound} фунтів</p>`)
+   document.write(`<p>3) В ${km} кілометрах  ${kmToMile} миль</p>`)
+   
+      </script>
+</body>
+</html>

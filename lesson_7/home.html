@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //====================================
+      
+      <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+    // ==========================================
+    //   Задача. Визначити середню оцінку з трьох предметів
+
+    //   1.Опис функції
+    //  function getAverageScore(score1, score2, score3) {
+      //   // let averageScore = (score1 + score2 + score3) / 3
+      //   // return averageScore
+      //   return (score1 + score2 + score3) / 3
+      // }
+      // //2.Використання і  розв"язання задачі
+      // const scoreNumber_1 = parseInt(prompt('Score 1 ='))
+      // const scoreNumber_2 = parseInt(prompt('Score 2 ='))
+      // const scoreNumber_3 = parseInt(prompt('Score 3 ='))
+
+      // const averageScore = getAverageScore(
+      //   scoreNumber_1,
+      //   scoreNumber_2,
+      //   scoreNumber_3
+      // )
+
+      // document.write(`Average score = ${averageScore}`)
+
+      //==========================================
+      // Задача . Вивести привітання декількома мовами (створити функцію: мова задається (ua,en), а виводиться привітання на потрібній мові (‘привіт’, ‘hello’))
+ // function getGreeting(lang) {
+      //   // switch (lang) {
+      //   //   case 'ua': return 'Привіт'
+      //   //   case 'en': return 'Hello'
+      //   //   default: return 'Error'
+      //   // }
+
+      //   let result
+      //   switch (lang) {
+      //     case 'ua':
+      //       result = 'Привіт'
+      //       break
+      //     case 'en':
+      //       result = 'Hello'
+      //       break
+      //     default:
+      //       result = 'Error'
+      //       break
+      //   }
+      //   return result
+      // }
+
+      // const lang = prompt('Введіть локалізацію (ua/en)')
+      // const msg = getGreeting(lang)
+      // document.write(msg)
+
+      //==========================================
+      // Задача. Знайти розмір заробітної плати
+      // (ставка (salary) + надбавка ( benefits ) - податок (tax%))
+      // function getFinalSalary(salary, benefits, tax) {
+      //   return (salary + benefits) * (1 - tax / 100)
+      // }
+
+      // const salary = parseFloat(prompt('Salary '))
+      // const benefits = parseFloat(prompt('benefits '))
+      // const tax = parseFloat(prompt('tax '))
+
+      // const finalSalary = getFinalSalary(salary, benefits, tax)
+      // document.write(`Final: ${finalSalary}`)
+      //===================================
+      // function getSum(a, b) {
+      //   return a + b
+      // }
+      // let getSum = function (a, b) {
+      //   return a + b
+      // }
+
+      // let x1 = 2,
+      //   x2 = 3
+      // let s = getSum(x1, x2)
+
+      // document.write(`Sum = ${s}`)
+
+      //==========================================
+      // Задача. Двоє гравців кидають двічі разів кубик і визначається сумарна кількість балів. Визначити переможця
+        // function getDiceScore() {
+      //   return 1 + Math.floor(Math.random() * 6)
+      // }
+
+      // // кількість балів 1-го гравця
+      // // score1 = результат_підкидання1 + результат_підкидання2
+      // const score1 = getDiceScore() + getDiceScore()
+
+      // // кількість балів 2-го гравця
+      // // score2 = результат_підкидання1 + результат_підкидання2
+      // const score2 = getDiceScore() + getDiceScore()
+
+      // if (score1 > score2) document.write('Переміг 1 гравець')
+      // else if (score1 < score2) document.write('Переміг 2 гравець')
+      // else document.write('Нічия')
+
+      //==========================================
+      // Обчислити.    S = Max(a, b) + Min(c, d) +Max(a, c)
+      //               S =   m1      +    m2     +  m3
+
+      //   function getMax(c1, c2) {
+      //     return c1 > c2 ? c1 : c2
+      //   }
+      //   function getMin(c1, c2) {
+      //     return c1 < c2 ? c1 : c2
+      //   }
+
+      //   //Ввести змінні a,b,c, d
+      //   let a = parseFloat(prompt('a='))  //2
+      //   let b = parseFloat(prompt('b='))  //3
+      //   let c = parseFloat(prompt('c='))  //6
+      //   let d = parseFloat(prompt('d='))  //-2
+
+      //   // //Кроки розв.
+      //   // //m1 = Max(a, b)
+      //   // const m1 = getMax(a, b)
+      //   // //m2 = Min(c, d)
+      //   // const m2 = getMin(c, d)
+      //   // //m3 = Max(a, c)
+      //   // const m3 = getMax(a, c)
+      //   // const s = m1 + m2 + m3
+      // //S = Max(a, b) + Min(c, d) +Max(a, c)
+      //   const s= getMax(a,b) + getMin(c,d)+ getMax(a,c)
+      //   document.write(`S= ${s}`)
+
+      //==========================================
+      // function getSum(c1, c2 = 0, c3 = 0) {
+      //   return c1 + c2 + c3
+      // }
+
+      // alert(getSum(1, 7)) //1 -  8
+      // alert(getSum(1)) //2 - 1
+      // alert(getSum(2, 5, 2, 2, 3, 65, 23, 45, 56)) //3 - 9
+      // alert(getSum()) //4 - NaN
+
+      // Дано 4 числа. Знайти суму та добуток як результат однієї функції.
+
+      //==========================================
+      // Дано 4 числа. Знайти максимальне і мінімальне значення як результат однієї функції.
+
+      //==========================================
+      //   Дано загальну кількість секунд, яка пройшла від початку доби. Знайти показники годинника на даний момент
+      // (години, хвилини, секунди) (повернути як об’єкт)
+
+      //==========================================
+      //==========================================
+      //Задача. Дано масив з віком працівників. Визначити скільки серед  них пенсіонерів (вік>=65).
+
+    </script>
+  </body>
+</html>

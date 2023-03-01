@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #3</title>
+</head>
+<body>
+   <h1>Задача 3</h1>
+   <p>Створити окремі функції, які для 4 чисел знаходять:</p>
+   <p>1) суму;</p>
+   <p>2) добуток;</p>
+   <p>3) середнє арифметичне;</p>
+   <p>4) мінімальне значення.</p>
+
+      <script>
+
+      function getSum(c1, c2, c3, c4) {
+        return c1 + c2 + c3 + c4
+      }
+      function getProduct(c1, c2, c3, c4) {
+        return c1 * c2 * c3 * c4
+      }
+      function getAverageNum(c1, c2, c3, c4) {
+        return (c1 * c2 * c3 * c4) / 4
+      }
+      function getMinNum(c1, c2, c3, c4) {
+        let min = +Infinity
+         if (c1 < min) min = c1
+         if (c2 < min) min = c2
+         if (c3 < min) min = c3
+         if (c4 < min) min = c4
+         return min
+      }
+      
+   const c1 = parseFloat(prompt('C1 = '))
+   const c2 = parseFloat(prompt('C2 = '))
+   const c3 = parseFloat(prompt('C3 = '))
+   const c4 = parseFloat(prompt('C4 = '))
+
+   const resultOfSum = getSum(c1, c2, c3, c4)
+   const resultOfProduct = getProduct(c1, c2, c3, c4)
+   const resultOfAverage = getAverageNum(c1, c2, c3, c4)
+   const resultOfMin = getMinNum(c1, c2, c3, c4)
+
+   document.write(`<p>Введені числа: ${c1}, ${c2}, ${c3}, ${c4}</p>`)
+   document.write(`<p>1) Результат суми 4 чисел = ${resultOfSum}</p>`)
+   document.write(`<p>2) Результат добутку 4 чисел = ${resultOfProduct}</p>`)
+   document.write(`<p>3) Середнє арифметичне 4 чисел = ${resultOfAverage}</p>`)
+   document.write(`<p>4) Мінімальне значення серед 4 чисел = ${resultOfMin}</p>`)
+      </script>
+</body>
+</html>
