@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #7</title>
+</head>
+<body>
+   <h1>Задача 7</h1>
+   <p>Дано масив цін. Змінити цей масив так, що на ціни товарів, які більші за 1000 грн. дати 30% знижки (*0.7).</p>
+   
+	<script>
+
+      let minPrice = 1
+      let maxPrice = 5000
+ 	   let elementQuontity = parseInt(prompt('Введіть число - кількість елементів масиву'))
+
+      function inputArr(elementQuontity) {
+         let arr = []
+         for (let i = 1; i <= elementQuontity; i++) {
+            let randomNum = 1 + Math.floor(Math.random() * 4999)
+            arr.push(randomNum)
+         }
+         return arr
+      }
+        
+	const randomArr =  inputArr(elementQuontity)
+	document.write(`Ваш створений масив: [${randomArr}]<br>`)
+
+	let newPrices = randomArr.map((price) => {
+      if (price > 1000) price *= 0.7
+     return Math.floor(price)  
+   })
+
+		document.write(`Масив, з цінами на товари, які більші за 1000 грн. дано 30% знижки: [${newPrices}]<br>`)     
+
+	</script>
+</body>
+</html>
