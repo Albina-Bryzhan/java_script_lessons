@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #1</title>
+</head>
+<body>
+  <h1>Задача 1</h1>
+  <p>Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000)</p>
+  
+      <script>
+      let elementQuontity = parseInt(prompt('Введіть число - кількість цін на цінні папери (кількість елементів масиву)'))
+        // генеруємо рандомне число від 10 до 10000
+        const minValue = 1
+        const maxValue = 10000   
+      function getRandomNum(minValue, maxValue) {
+        return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+      }
+      // генеруємо масив з цих рандомних чисел
+       function getRandomArray(elementQuontity, minValue, maxValue) {
+        const arr = []
+        for (let i = 0; i < elementQuontity; i++) {
+          const randNum = getRandomNum(minValue, maxValue)
+          arr.push(randNum)
+        }
+        return arr
+      }
+  	// виводимо сгенерований масив з цінами на папери
+	  const pricesHistoryArr =  getRandomArray(elementQuontity, minValue, maxValue)
+	  document.write(`Ваш сгенерований масив: [${pricesHistoryArr}]<br><br>`)
+
+    // 1)Формуємо новий масив, у якому є тільки ті, що більші за 1000 грн.
+    const pricesMoreThah1000 = pricesHistoryArr.filter((price) => price > 1000)
+    document.write(`1)Ваш створений масив з елементами, що більші за 1000 грн.: [${pricesMoreThah1000}]<br><br>`)
+
+    // 2)Формуємо новий масив, у якому є номери тільки тих, що більші за 1000 грн.
+    const indexMoreThan1000List = pricesHistoryArr.reduce(
+      (prevIndexMoreThan1000, element, index) => {
+        if (element > 1000) {
+          prevIndexMoreThan1000.push(index)
+        }
+        return prevIndexMoreThan1000
+    }, [])
+    // Варік от А.В.
+    // let indexMoreThan1000List = []
+    // for (let index = 0; index < pricesHistoryArr.length; index++) {
+    //  if (pricesHistoryArr[index] > 1000) indexMoreThan1000List.push(index)   
+    // }
+   document.write(`2)Ваш створений масив з номерами елементів, що більші за 1000 грн.: [${indexMoreThan1000List}]<br><br>`)  
+
+  //  3)Формуємо список з тих цін, які більші за попереднє значення
+   const pricesMoreThanPrevious = pricesHistoryArr.reduce((previousPrice, element, index, baseArrRef) => {
+        if  (element > baseArrRef[index - 1]) {
+          previousPrice.push(element)
+        }
+        return previousPrice
+    }, [])
+   document.write(`3)Ваш створений масив з  тих цін, які більші за попереднє значення: [${pricesMoreThanPrevious}]<br><br>`) 
+
+  //  4)Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального
+      const maxElement = pricesHistoryArr.reduce((prevMax, element) =>
+        element > prevMax ? element : prevMax
+        )
+      const percentOfMaxElement =  pricesHistoryArr.map((element) => Math.round((100 * element) / maxElement) )
+
+  document.write(`4)Ваш створений масив що міститиме значення цін у відсотках стосовно максимального: [${percentOfMaxElement}]<br><br>`) 
+
+  // 5)Підрахувати кількість змін цін
+  const quontityOfChangingPrice = pricesHistoryArr.filter((price, index) => {
+    return price !== price[index-1]
+    }).length
+   document.write(`5)Ваш створений масив містить таку кількість змін: ${quontityOfChangingPrice}<br><br>`)   
+
+  // 6)Визначити, чи є ціна, що менше 1000
+  const elementLessThan1000 = pricesHistoryArr.find((element, index, baseArrRef) => element < 1000)
+    if (elementLessThan1000) 
+  document.write(`6)В масиві є ціна, що менше за 1000грн. Це = ${elementLessThan1000}<br><br>`) 
+    else
+  document.write(`6)В масиві цін, що менше за 1000грн. немає<br><br>`) 
+
+// 7)Визначати, чи усі ціни більше за 1000
+  const isAllElementsMoreThan1000 = pricesHistoryArr.every(element => element > 1000)
+    if(isAllElementsMoreThan1000)
+  document.write(`7)В масиві всі ціни більші за 1000грн.<br><br>`) 
+    else
+  document.write(`7)В масиві НЕ всі ціни більші за 1000грн.<br><br>`) 
+
+// 8)Підрахувати кількість цін, що більше за 1000
+  const quontityPricesMoreThan1000 = pricesHistoryArr.reduce(
+    (priceMoreThan1000, element) => element > 1000 ? priceMoreThan1000 + 1 : priceMoreThan1000,
+    0)
+  document.write(`8)В масиві кількість цін, що більше за 1000грн. = ${quontityPricesMoreThan1000}<br><br>`) 
+
+// 9)Підрахувати суму цін, що більше за 1000
+  const sumOfPricesMoreThan1000 = pricesHistoryArr.reduce(
+    (prevSum, element) => element > 1000 ? prevSum + element : prevSum,
+   0)
+  document.write(`9)Сума цін, що більше за 1000грн. = ${sumOfPricesMoreThan1000}<br><br>`) 
+
+// 10)Знайти першу ціну, що більше за 1000
+ const firstPriceMoreThan1000 = pricesHistoryArr.find((element, index, baseArrRef) => 
+  element > 1000)
+    if (firstPriceMoreThan1000) 
+  document.write(`10)В масиві перша ціна, що більше за 1000грн. = ${firstPriceMoreThan1000}<br><br>`) 
+    else
+  document.write(`10)В масиві всі ціни менше за 1000грн.<br><br>`) 
+
+// 11)Знайти індекс першої ціни, що більше за 1000
+  const indexFirstPriceMoreThan1000 = pricesHistoryArr.findIndex((element, index, baseArrRef) => 
+  element > 1000) 
+  document.write(`11)В масиві індекс першої ціни, що більше за 1000грн. = ${indexFirstPriceMoreThan1000}<br><br>`) 
+
+// 12)Знайти останню ціну, що більше за 1000
+const lastPriceMoreThan1000 = pricesHistoryArr.findLast((element, index, baseArrRef) => 
+  element > 1000) 
+  document.write(`12)В масиві остання ціна, що більше за 1000грн. = ${lastPriceMoreThan1000}<br><br>`) 
+
+// 13)Знайти індекс останньої ціни, що більше за 1000
+const lastIndexPriceMoreThan1000 = pricesHistoryArr.findLastIndex((element, index, baseArrRef) => 
+  element > 1000) 
+  document.write(`13)В масиві індекс останньої ціни, що більше за 1000грн. = ${lastIndexPriceMoreThan1000}<br><br>`) 
+
+      </script>
+</body>
+</html>
