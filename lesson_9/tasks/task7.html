@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #7</title>
+</head>
+<body>
+   <h1>Задача 7</h1>
+   <p>Дано масив цін. Змінити цей масив так, що на ціни товарів, які більші за 1000 грн. дати 30% знижки (*0.7).</p>
+   
+	<script>
+
+      function getRandomNum(minValue, maxValue) {
+        return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+      }
+
+   let elementQuontity = parseInt(prompt('Введіть число - кількість елементів масиву'))
+   let minValue = parseInt(prompt('Введіть число - початок інтервалу minValue ='))
+   let maxValue = parseInt(prompt('Введіть число - кінець інтервалу maxValue ='))
+
+      function getRandomArray(elementQuontity, minValue, maxValue) {
+        const arr = []
+        for (let i = 0; i < elementQuontity; i++) {
+          const randNum =
+            minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+          arr.push(randNum)
+        }
+        return arr
+      }
+        
+	const randomArr =  getRandomArray(elementQuontity, minValue, maxValue)
+	document.write(`Ваш створений масив: [${randomArr}]<br>`)
+
+	let newPrices = randomArr.map((price) => {
+      if (price > 1000) price *= 0.7
+     return Math.floor(price)  
+   })
+
+  // варіант Андрія Вікторовича
+  // randomArr.forEach((element, index, arrRef) => {
+  // if (element > 1000) arrRef[index] *= 0.7
+  // })
+
+		document.write(`Масив, з цінами на товари, які більші за 1000 грн. дано 30% знижки: [${newPrices}]<br>`)     
+
+	</script>
+</body>
+</html>

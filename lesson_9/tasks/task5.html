@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #5</title>
+</head>
+<body>
+   <h1>Задача 5</h1>
+   <p>Дано масив елементів. Знайти добуток додатних елементів</p>
+
+   <script>
+
+   let elementQuontity = parseInt(prompt('Введіть число - кількість елементів масиву'))
+
+      function inputArr(elementQuontity) {
+         let arr = []
+         for (let i = 1; i <= elementQuontity; i++) {
+            let elArr = parseInt(prompt(`Введіть  ${i}-ий елемент масиву`))
+            arr.push(elArr)
+         }
+         return arr
+      }
+        
+      const userArr =  inputArr(elementQuontity)
+      document.write(`Ваш створений масив: [${userArr}]<br>`)
+
+      let productOfPositiveEl = 1
+      for (const elArr of userArr) {
+         if (elArr > 0)  productOfPositiveEl *= elArr
+      }
+       document.write(`Добуток додатних елементів масиву: [${productOfPositiveEl}]<br>`)      
+
+   </script>
+</body>
+</html>
