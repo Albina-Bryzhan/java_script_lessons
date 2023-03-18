@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #3</title>
+</head>
+<body>
+   <h1>Задача 3</h1>
+  <p>Морський бій. Випадковим чином на двовимірному полі розміром 6*6 розташовується 5 кораблів. Користувач стріляє вказуючи координати. Гра продовжується поки не потоплено усі кораблі або у користувача не закінчаться снаряди.</p>
+   <!-- Цю задачу спіонерила у колег. Сама не змогла вирішити -->
+  <script>
+ //----- Сформувати поле гри (двовимірний масив із розміщеними кораблями)
+
+      // генеруємо рандомне число 
+    function getRandomNum(minValue, maxValue) {
+      return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+    }
+
+   // функція генерування двовимірного масиву (двовимірної таблиці даних) - пустого поля для гри. Заповнюємо поле спочатку 0.
+   function generateField(rowsNum, columnNum){
+      const table = []
+      for (let i = 0; i < rowsNum; i++) {
+         let randomRow = new Array(columnNum)
+         randomRow.fill(0)
+         table.push(randomRow)
+      }
+      return table
+   }
+   const field = generateField(6, 6) 
+   let ships = 5
+// Розміщуємо кораблі по полю в довільному порядку. Розставляємо 1 по полю.
+    function getShips(field, ships) {
+      for (let i = 0; i < ships; i++) {
+        let randomPositionRow, randomPositionColumn
+        do {
+          randomPositionRow = Math.floor(Math.random() * field.length)
+          randomPositionColumn = Math.floor(Math.random() * field.length)
+        } while (field[randomPositionRow][randomPositionColumn] === 1)
+
+        field[randomPositionRow][randomPositionColumn] = 1
+      }
+      return field
+    }
+ const fieldWithShips =  getShips(field, ships) 
+
+  //----- Гра корстувача
+let shotsQnt = parseInt(prompt('Введіть число - кількість пострілів'))
+
+while (ships > 0 && shotsQnt > 0) {
+  let x = prompt("Введіть число - постріл по осі Х (0-5):")
+  let y = prompt("Введіть число - постріл по осі У (0-5):")
+  if (fieldWithShips[x][y] === 1) {
+    alert("Ви потопили корабель!")
+    ships--
+  } else {
+    alert("Ви промахнулись!")
+  }
+  shotsQnt--
+}
+
+// виводимо результат гри на екран
+if (ships === 0) {
+  alert("Ви виграли!");
+} else {
+  alert("Постріли закінчилась. Ви програли, бо не потопили усі кораблі.");
+}
+
+ document.write('Ваше поле для гри: <br>')
+  document.write('<table border="1px">')
+  for (let i = 0; i < field.length; i++) {
+    document.write('<tr>')
+    for (let j = 0; j < field[i].length; j++) {
+      document.write(`<td>${field[i][j]}</td>`)
+    }
+    document.write('</tr>')
+  }
+  document.write('</table>')
+  document.write('<br>')
+
+  </script>
+</body>
+</html>

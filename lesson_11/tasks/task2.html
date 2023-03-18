@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #2</title>
+</head>
+<body>
+  <h1>Задача 2</h1>
+  <p>Дано інформацію про прибуток К магазинів протягом тижня. Знайти:</p>
+  
+      <script>
+
+// генеруємо рандомне число - прибуток магазину за один день
+    function getRandomDayProfit(minDayProfit, maxDayProfit) {
+      return minDayProfit + Math.floor(Math.random() * (maxDayProfit - minDayProfit + 1))
+    }
+ 
+ // генеруємо одновимірний масив з цих рандомних чисел - прибуток 1 магазину за тиждень
+      const week = 7
+       function generateRandomWeekProfit(week) {
+        const arr = []
+        for (let i = 0; i < week; i++) {
+          const randProfit = getRandomDayProfit(1, 10000)
+          arr.push(randProfit)
+        }
+        return arr
+      }
+
+   // функція генерування двовимірного масиву (двовимірної таблиці даних) - прибуток К магазинів за тиждень
+   const quontityOfKStores = parseInt(prompt('Введіть число - кількість магазинів'))
+   
+      function getProfitKStores(quontityOfKStores){
+         let profitList = []
+         for (let i = 0; i < quontityOfKStores; i++) {
+            const oneStoreProfit = generateRandomWeekProfit(week)
+            profitList.push(oneStoreProfit)
+         }
+         return profitList
+      }
+      const profitOfKStores = getProfitKStores(quontityOfKStores)
+
+  document.write('Ваш прибуток К магазинів протягом тижня: <br>')
+  document.write('<table border="1px">')
+  for (let i = 0; i < profitOfKStores.length; i++) {
+    document.write('<tr>')
+    for (let j = 0; j < profitOfKStores[i].length; j++) {
+      document.write(`<td>${profitOfKStores[i][j]}</td>`)
+    }
+    document.write('</tr>')
+  }
+  document.write('</table>')
+  document.write('<br>')
+
+    // 1)загальний прибуток кожного магазину за тиждень;
+    function getProfitEveryStoreForWeek(profitOfKStores){
+      let profitEveryStoreForWeek = []
+      for (let i = 0; i < profitOfKStores.length; i++) {
+      const oneStoreSum = profitOfKStores[i].reduce((prevsum, element) => prevsum + element)
+      profitEveryStoreForWeek.push(oneStoreSum)
+   }
+   return profitEveryStoreForWeek
+    }
+   const  profitEveryStoreForWeek =  getProfitEveryStoreForWeek(profitOfKStores)
+    document.write(`1)Загальний прибуток кожного магазину за тиждень складає: [${profitEveryStoreForWeek}]<br><br>`)
+
+    // 2)загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.);
+   function getTotalProfitKStoresByWeeksDay(profitOfKStores) {
+     let totalProfitKStoresByWeeksDay = []
+      for (let i = 0; i < week; i++) {
+      let sumOfOneDay = 0
+      for (let j = 0; j < profitOfKStores.length; j++) {
+        sumOfOneDay += profitOfKStores[j][i]
+      }
+       totalProfitKStoresByWeeksDay.push(sumOfOneDay)      
+   }
+   return totalProfitKStoresByWeeksDay
+   }
+   const  totalProfitKStoresByWeeksDay =  getTotalProfitKStoresByWeeksDay(profitOfKStores)
+   document.write(`2)Ваш загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.) складає: [${totalProfitKStoresByWeeksDay}]<br><br>`)
+   
+ //  3)загальний прибуток за робочі дні
+function getProfitForWorkingDays(profitOfKStores) {
+     let profitForWorkingDays = []
+      for (let i = 0; i < 5; i++) {
+      let sumOfOneDay = 0
+      for (let j = 0; j < profitOfKStores.length; j++) {
+        sumOfOneDay += profitOfKStores[j][i]
+      }
+       profitForWorkingDays.push(sumOfOneDay)      
+   }
+   return profitForWorkingDays
+   }
+   const  profitForWorkingDays =  getProfitForWorkingDays(profitOfKStores)
+   document.write(`3)Ваш загальний прибуток усіх магазинів за робочі дні (0-4) складає: [${profitForWorkingDays}]<br><br>`)
+   
+//  4)загальний прибуток за вихідні дні
+function getProfitForDaysOff(profitOfKStores) {
+     let profitForDaysOff = []
+      for (let i = 5; i <= 6; i++) {
+      let sumOfOneDay = 0
+      for (let j = 0; j < profitOfKStores.length; j++) {
+        sumOfOneDay += profitOfKStores[j][i]
+      }
+       profitForDaysOff.push(sumOfOneDay)      
+   }
+   return profitForDaysOff
+   }
+  const  profitForDaysOff =  getProfitForDaysOff(profitOfKStores)
+   document.write(`4)Ваш загальний прибуток усіх магазинів за вихідні дні (5-6) складає: [${profitForDaysOff}]<br><br>`)
+
+// 5)максимальний прибуток за середу
+function getMaxProfitForDay(profitOfKStores, day) {
+   let maxProfit = profitOfKStores[0][day - 1]
+   for (let i = 1; i < profitOfKStores.length; i++) {
+      if (profitOfKStores[i][day - 1] > maxProfit) maxProfit = profitOfKStores[i][day - 1]
+   }
+   return maxProfit
+}
+ const  maxProfitForWednesday =  getMaxProfitForDay(profitOfKStores, 3)
+   document.write(`5)Ваш максимальний прибуток за середу складає: [${maxProfitForWednesday}]<br><br>`)
+
+// 6)сформувати загальний список (одновимірний масив) зі значенням, що більші за 2000
+  let numMoreThan2000Arr = []
+    for (const rows of profitOfKStores) {
+	    for (const col of rows) {
+		    if(col > 2000)numMoreThan2000Arr.push(col)
+	  }
+}
+document.write(`6)Ваш загальний список (одновимірний масив) зі значенням, що більші за 2000: [${numMoreThan2000Arr}]<br><br>`)
+
+// 7)відсортувати кожен тиждень за зростанням
+function getSortByAscending(profitOfKStores) {
+   let sortByAscending = JSON.parse(JSON.stringify(profitOfKStores))
+   for (const row of sortByAscending) {
+      row.sort((el1, el2) => el1 - el2)
+   }
+   return sortByAscending
+}
+const sortByAscendingList = getSortByAscending(profitOfKStores)
+
+document.write('7)Ваш відсортований список тижнів за зростанням: <br>')
+document.write('<table border="1px">')
+for (let i = 0; i < profitOfKStores.length; i++) {
+  document.write('<tr>')
+  for (let j = 0; j < profitOfKStores[i].length; j++) {
+    document.write(`<td>${sortByAscendingList[i][j]}</td>`)
+  }
+  document.write('</tr>')
+}
+document.write('</table>')
+  document.write('<br>')
+
+// 8)відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків
+function getSortRowsByDecrement(profitOfKStores) {
+   let sortRowsByDecrement = JSON.parse(JSON.stringify(profitOfKStores))
+    for (const row of sortRowsByDecrement) {
+      row.sort((el1, el2) => el2 - el1)
+   }
+   return sortRowsByDecrement.sort((el1, el2) => Math.max(...el2) - Math.max(...el1))
+}
+const sortRowsByDecrement = getSortRowsByDecrement(profitOfKStores)
+
+document.write('8)Ваш відсортований список тижнів за спаданням  максимального елементу в цьому тижні (рядку): <br>')
+document.write('<table border="1px">')
+for (let i = 0; i < profitOfKStores.length; i++) {
+  document.write('<tr>')
+  for (let j = 0; j < profitOfKStores[i].length; j++) {
+    document.write(`<td>${sortRowsByDecrement[i][j]}</td>`)
+  }
+  document.write('</tr>')
+}
+document.write('</table>')
+  document.write('<br>')
+
+// 9)упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти раніше).
+
+function getSortSumRowsByDecrement(profitOfKStores) {
+   let sortSumRowsByDecrement = JSON.parse(JSON.stringify(profitOfKStores))
+   return sortSumRowsByDecrement.sort((el1, el2) =>
+      el2.reduce((prevSum, el) => prevSum + el) - el1.reduce((prevSum, el) => prevSum + el)
+   )
+}
+const sortSumRowsByDecrement = getSortSumRowsByDecrement(profitOfKStores)
+
+document.write('9)Ваш відсортований список тижнів за спаданням  суми елементів у рядку: <br>')
+document.write('<table border="1px">')
+for (let i = 0; i < profitOfKStores.length; i++) {
+  document.write('<tr>')
+  for (let j = 0; j < profitOfKStores[i].length; j++) {
+    document.write(`<td>${sortSumRowsByDecrement[i][j]}</td>`)
+  }
+  document.write('</tr>')
+}
+document.write('</table>')
+document.write('<br>')
+
+
+      </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #1</title>
+</head>
+<body>
+  <h1>Задача 1</h1>
+  <p>Знайти суми елементів у вказаній області двовимірного масиву:</p>
+ 
+      <script>
+     // генеруємо рандомне число 
+    const minValue = 1
+    const maxValue = 100
+    function getRandomNum(minValue, maxValue) {
+      return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+    }
+ 
+ // генеруємо одновимірний масив з цих рандомних чисел
+      const arrayLength = 4
+       function generateRandomArray(arrayLength, minValue, maxValue) {
+        const arr = []
+        for (let i = 0; i < arrayLength; i++) {
+          const randNum = getRandomNum(minValue, maxValue)
+          arr.push(randNum)
+        }
+        return arr
+      }
+
+   // функція генерування двовимірного масиву (двовимірної таблиці даних)
+   const rowsNum = 4
+   const columnNum = 4
+      function generateRandomTable(rowsNum, columnNum, minValue, maxValue){
+         const table = []
+         for (let i = 0; i < rowsNum; i++) {
+            const randomRow = generateRandomArray(arrayLength, minValue, maxValue)
+            table.push(randomRow)
+         }
+         return table
+      }
+      const randomTable = generateRandomTable(rowsNum, columnNum, minValue, maxValue)
+      
+ document.write('Ваш тестовий масив: <br>')
+document.write('<table border="1px">')
+  for (let i = 0; i < randomTable.length; i++) {
+    document.write('<tr>')
+    for (let j = 0; j < randomTable[i].length; j++) {
+      document.write(`<td>${randomTable[i][j]}</td>`)
+    }
+    document.write('</tr>')
+  }
+document.write('</table>')
+document.write('<br>')
+
+// 1)лівий верхній кут
+  let sumLeftUpperCorner = 0
+  for (let rowIndex = 0; rowIndex <= 1; rowIndex++) {
+    for (let columnIndex = 0; columnIndex <= 1; columnIndex++) {
+      sumLeftUpperCorner += randomTable[rowIndex][columnIndex]  
+  }
+}
+ document.write(`1) Сума елементів лівого верхнього кута: ${sumLeftUpperCorner}<br><br>`)
+
+ // 2)правий верхній кут
+ let sumRightUpperCorner = 0
+ for (let rowIndex = 0; rowIndex <= 1; rowIndex++) {
+  for (let columnIndex = 2; columnIndex <= 3; columnIndex++) {
+    sumRightUpperCorner += randomTable[rowIndex][columnIndex]  
+  }
+}
+ document.write(`2) Сума елементів правого верхнього кута: ${sumRightUpperCorner}<br><br>`)
+
+// 3)лівий ніжній кут
+let sumLeftDownCorner = 0
+for (let rowIndex = 2; rowIndex <= 3; rowIndex++) {
+  for (let columnIndex = 0; columnIndex <= 1; columnIndex++) {
+    sumLeftDownCorner += randomTable[rowIndex][columnIndex]  
+  }
+}
+ document.write(`4) Сума елементів лівого нижнього кута: ${sumLeftDownCorner}<br><br>`)
+
+ // 4)правий нижній кут
+let sumRightDownCorner = 0
+for (let rowIndex = 2; rowIndex <= 3; rowIndex++) {
+  for (let columnIndex = 2; columnIndex <= 3; columnIndex++) {
+    sumRightDownCorner += randomTable[rowIndex][columnIndex]  
+  }
+}
+ document.write(`4) Сума елементів правого нижнього кута: ${sumRightDownCorner}<br><br>`)
+
+// 5)Суму парних рядків
+let sumEvenRows = 0
+for (let i = 0; i < randomTable.length; i+=2) {
+  for (let j = 0; j < randomTable[i].length; j++) {
+    sumEvenRows += randomTable[i][j]
+  }
+}
+document.write(`5) Сума елементів парних рядків: ${sumEvenRows}<br><br>`)
+
+// 6)Суму непарних стовпців
+let sumOddColumns = 0
+for (let i = 0; i < randomTable.length; i++) {
+  for (let j = 0; j < randomTable.length; j++) {
+    if (j % 2 !== 0) sumOddColumns += randomTable[i][j]
+  }
+}
+document.write(`6) Сума елементів непарних стовпців: ${sumOddColumns}<br><br>`)
+
+// 7) У парних рядках – непарні стовпці, у непарних – парні.
+let sumInEvenRowsOddColumns = 0
+for (let i = 0; i < randomTable.length; i+=2) {
+  for (let j = 0; j < randomTable.length; j++) {
+    if (j % 2 !== 0)
+    sumInEvenRowsOddColumns += randomTable[i][j]
+  }
+}
+let sumInOddRowsEvenColumns = 0
+for (let i = 0; i < randomTable.length; i++) {
+  if (i % 2 !== 0)
+  for (let j = 0; j < randomTable.length; j++) {
+    if (j % 2 === 0)
+    sumInOddRowsEvenColumns += randomTable[i][j]
+  }
+}
+let sumTotal = sumInEvenRowsOddColumns + sumInOddRowsEvenColumns
+document.write(`7) Сума елементів у парних рядках і непарних стовпців і у непарних рядках парних стовпців: ${sumTotal}<br><br>`)
+
+
+      </script>
+</body>
+</html>
