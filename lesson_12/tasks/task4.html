@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #4</title>
+</head>
+<body>
+  <h1>Задача 4</h1>
+  <p>Для розглянутих методів сортування спробувати вивести етапи сортування шляхом виведення відповідних таблиць за зразком. Тобто кожного разу після обміну елементів вивести поточний стан масиву на екран.</p>
+  
+      <script>
+  function getRandomNum(minValue, maxValue) {
+   return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+}
+// генеруємо масив з цих рандомних чисел
+   function getRandomArray(elementQuontity, minValue, maxValue) {
+   const arr = []
+   for (let i = 0; i < elementQuontity; i++) {
+      const randNum = getRandomNum(minValue, maxValue)
+      arr.push(randNum)
+   }
+   return arr
+}
+// виводимо сгенерований масив 
+const array =  getRandomArray(5, 1, 100)
+const array2 =  getRandomArray(5, 1, 100)
+const array3 =  getRandomArray(5, 1, 100)
+
+ // Сортування бульбашкою
+  document.write(`Сортування бульбашкою<br>`)
+  document.write(`Ваш сгенерований масив: [${array2}]<br>`)
+ function getSortArrayBubbleMethod(array2) {
+  let current = 0
+  let exchanged
+  do {
+      exchanged = false
+      for (let i = 1; i < array2.length; i++) {
+          if (array2[i - 1] > array2[i]) {
+              let temp = array2[i]
+              array2[i] = array2[i - 1]
+              array2[i - 1] = temp
+              exchanged = true
+              current++
+              document.write(`[${array2}]<br>`)
+          }
+      }
+  } while (exchanged);
+  return current
+}
+const sortArrayByBubbleMethod = getSortArrayBubbleMethod(array2)
+    
+// Сортування змішуванням
+ document.write(`<br>Сортування змішуванням<br>`)
+ document.write(`Ваш сгенерований масив: [${array}]<br>`)
+ function getSortArrayCocktailMethod(array) {
+   let counter = 0
+    let leftIndex = 0
+    let rightIndex = array.length - 1
+   
+    while (leftIndex < rightIndex) {
+        for (let i = leftIndex; i < rightIndex; i++) {
+            if (array[i] > array[i + 1]) {
+                [array[i + 1], array[i]] = [array[i], array[i + 1]]
+                counter++
+                document.write(`[${array}]<br>`)
+            }
+        }
+        rightIndex--
+
+        for (let i = rightIndex; i > leftIndex; i--) {
+            if (array[i] < array[i - 1]) {
+                [array[i - 1], array[i]] = [array[i], array[i - 1]]
+                  counter++
+                  document.write(`[${array}]<br>`)
+            }
+        }
+        leftIndex++
+    } 
+    return array
+}
+const sortArrayByCocktailMethod = getSortArrayCocktailMethod(array)
+
+ // //Cортування включенням
+document.write(`<br>Сортування включенням<br>`)
+ document.write(`Ваш сгенерований масив: [${array3}]<br>`)
+ function getSortArrayByInsertMethod(array){
+   let counter2 = 0
+   for (let k = 1; k < array3.length; k++) {
+      let currentElement = array3[k]
+      let i = k - 1
+      while (i >=0 && array3[i] > currentElement){
+         array3[i + 1] = array3[i]
+         i = i - 1
+         counter2++
+      }
+       array3[i + 1] = currentElement
+        document.write(`[${array3}]<br>`)
+   }
+}
+const sortArrayByInsertMethod = getSortArrayByInsertMethod(array)
+ 
+      </script>
+</body>
+</html>

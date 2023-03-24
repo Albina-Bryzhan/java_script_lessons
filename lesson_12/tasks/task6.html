@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #6</title>
+   
+</head>
+<body>
+  <h1>Задача 6</h1>
+  <p>Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук визначити, чи є у масиві ім’я довжиною 5 символів і під яким індексом.</p>
+  
+
+<script>
+      let namesListArray = [
+  "Olena",
+  "Stepan",
+  "Hanna",
+  "Evgen",
+  "Olga",
+  "Victor",
+  "Natalia",
+  "Gnat",
+];
+
+// Сортування масиву
+function insertSort(arr) {
+  for (let k = 1; k < arr.length; k++) {
+    const currentElement = arr[k];
+    i = k - 1;
+    while (i >= 0 && arr[i] > currentElement) {
+      arr[i + 1] = arr[i];
+      i--;
+    }
+    arr[i + 1] = currentElement;
+  }
+  return arr;
+}
+
+// Знаходження індексу елемента у масиві (якщо немає, результат -1)
+function getLengthFiveByBinarySearch(arr, nameLength) {
+    let start = 0
+    let end = arr.length - 1
+    while (start <= end) {
+        const middle = Math.floor((start + end) / 2)
+        if (arr[middle].length === nameLength)
+        return middle
+        if (nameLength > arr[middle].length) start = middle + 1
+        else end = middle - 1
+    }
+    return -1
+}
+
+const sortNamesArr = insertSort(namesListArray);
+const lengthFiveByBinarySearch = getLengthFiveByBinarySearch(sortNamesArr, 5);
+
+ // Вивод результату
+ document.write(`Відсортований масив: [${sortNamesArr}]<br>`);
+if (lengthFiveByBinarySearch !== -1)
+  document.write(
+    `Ім"я з 5 символів входить у масив під індексом ${lengthFiveByBinarySearch}`
+  );
+else document.write('Ім"я з 5 символів не входить у масив');
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #2</title>
+</head>
+<body>
+  <h1>Задача 2</h1>
+  <p>Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під час сортування змішуванням.</p>
+  
+      <script>
+       
+        function getRandomNum(minValue, maxValue) {
+        return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+      }
+      // генеруємо масив з цих рандомних чисел
+       function getRandomArray(elementQuontity, minValue, maxValue) {
+        const arr = []
+        for (let i = 0; i < elementQuontity; i++) {
+          const randNum = getRandomNum(minValue, maxValue)
+          arr.push(randNum)
+        }
+        return arr
+      }
+  	// виводимо сгенерований масив 
+	  const array =  getRandomArray(30, 1, 1000)
+	  document.write(`Ваш сгенерований масив: [${array}]<br><br>`)
+
+  
+  function getSortArrayCocktailMethod(array) {
+    let counterLeft = 0
+    let counterRight = 0
+    let leftIndex = 0
+    let rightIndex = array.length - 1
+    while (leftIndex < rightIndex) {
+        for (let i = leftIndex; i < rightIndex; i++) {
+            if (array[i] > array[i + 1]) {
+                [array[i + 1], array[i]] = [array[i], array[i + 1]]
+                counterLeft++
+            }
+        }
+        rightIndex--
+
+        for (let i = rightIndex; i > leftIndex; i--) {
+            if (array[i] < array[i - 1]) {
+                [array[i - 1], array[i]] = [array[i], array[i - 1]]
+                counterRight++
+            }
+        }
+        leftIndex++
+    }
+    
+    return counterLeft + counterRight
+}
+
+const sortArrayByCoctailMethod =  getSortArrayCocktailMethod(array)
+document.write(`Ваш відсортований масив методом змішування: [${array}]<br><br>`)
+document.write(`Кількість обмінів під час сортування методом змішування: ${sortArrayByCoctailMethod}<br><br>`)
+      </script>
+</body>
+</html>
