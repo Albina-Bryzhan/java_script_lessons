@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/tasks/css/styles.css">
+   <title>Task #2</title>
+</head>
+<body>
+  <h1>Задача 2</h1>
+   <p> Створити об’єкт «Авто». </p>
+<table>
+<tr>
+      <td>Авто</td>
+      <td></td>
+</tr>
+<tr>
+      <td>Поля(властивості)</td>
+      <td>Марка <br>
+      Розмір бака<br>
+      Кількість наявних літрів<br>
+      Кількість місць<br>
+      Кількість пасажирів</td>
+</tr>
+<tr>
+      <td>Методи (дії)</td>
+      <td>Заправка на вказану кількість літрів<br>
+      Виведення кількості пасажирів<br>
+      Додавання пасажирів<br>
+      Висадка пасажирів</td>
+</tr>
+</table>
+<br>
+<br>
+
+      <script>
+
+let auto = {
+      model : 'Audi',
+      tankSize: 200,
+      numberOfAvailableLiters: 50,
+      seatsNumber: 5,
+      passengersNumber: 2,
+
+      // Заправка на вказану кількість літрів
+      getRefueling: function (litresQnt){
+      if (litresQnt > this.tankSize + litresQnt)
+      throw new Error ('litresQnt are more than tankSize')
+      else
+      return this.numberOfAvailableLiters + litresQnt
+      },
+
+      // Виведення кількості пасажирів
+      getPassengersNumber: function () {
+       console.log(this.passengersNumber)
+      },
+
+      // Додавання пасажирів
+      addPassengers: function(userPassengers){
+      if((userPassengers + this.passengersNumber) <= this.seatsNumber)
+      return this.passengersNumber + userPassengers
+      else
+      throw new Error ('Passengers are more than number of seats')
+      },
+
+      // Висадка пасажирів
+      gettinOutPassengers: function(userPassengers){
+      //     Якщо некоректна кількість генеруємо виключну ситуацію
+       if(userPassengers > this.passengersNumber)
+      throw new Error ('Getting out passengers are more than passengers number')
+      // Інакше зберігаємо кількість
+      return this.passengersNumber - userPassengers
+      },
+
+      toString: function () {
+      return `Модель:${this.model}<br>
+      Розмір бака: ${this.tankSize} <br>
+      Кількість наявних літрів: ${this.numberOfAvailableLiters}<br>
+      Кількість місць: ${this.seatsNumber}<br>
+      Кількість пасажирів:  ${this.passengersNumber}<br><br>
+     `}
+}
+
+document.write(auto)
+document.write(` 
+Заправка на вказану кількість літрів(100): ${auto.getRefueling(100)}<br>
+Виведення кількості пасажирів:  ${auto.passengersNumber}<br>
+Додавання пасажирів(3):  ${auto.addPassengers(3)}<br>
+Висадка пасажирів(1):  ${auto.gettinOutPassengers(1)}<br>`)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/tasks/css/styles.css">
+   <title>Task #3</title>
+</head>
+<body>
+  <h1>Задача 3</h1>
+   <p>  Розробити клас MultChecker для перевірки таблиці множення</p>
+  <table>
+  <tr>
+      <td>Поля(властивості)</td>
+      <td>Число, яке перевіряємо (наприклад, перевірка частини таблиці множення на 7) <br>
+      Кількість правильних відповідей<br>
+      Кількість неправильних відповідей</td>
+  </tr>
+  <tr>
+      <td>Методи (дії)</td>
+      <td>Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване)<br>
+      Перевірка правильності вказаної відповіді<br>
+      render - виведення інформації про тестування на екран</td>
+  </tr>
+  </table>
+  <br><br>
+
+  <script>
+
+class MultChecker{
+  constructor(number){
+    this.number = number
+    this.qntRightAnswers = 0
+    this.qntWrongAnswers = 0
+  }
+  // Опис методів
+ 
+  getExample(minV, maxV){
+    let randomNum = minV + Math.floor(Math.random() * (maxV - minV + 1))
+    let userAnswer = parseInt(prompt(`${this.number} * ${randomNum} = введіть число - вашу відповідь`))
+    let result = this.number * randomNum
+    return [userAnswer, result]
+  }
+
+  checkingAnswer(min, max) {
+    for (let i = 0; i < 5; i++) {
+      let temp = this.getExample(min, max)
+      if (temp[0] === temp[1])
+        this.qntRightAnswers += 1
+      else this.qntWrongAnswers += 1
+    }
+  }
+
+  
+  render() {
+    document.write(`Число, яке перевіряємо: ${this.number}<br>`)
+    document.write(`Правильних відповідей ${this.qntRightAnswers}<br>`)
+    document.write(`Неправильних відповідей ${this.qntWrongAnswers}<br>`)
+			}
+
+}
+
+let productChecker = new MultChecker (7)
+productChecker.checkingAnswer(1, 9)
+productChecker.render()
+
+  </script>
+      
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/tasks/css/styles.css">
+   <title>Task #1</title>
+</head>
+<body>
+  <h1>Задача 1</h1>
+  <p>  Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є заєць і 0 в іншому випадку.</p>
+  <table>
+  <tr>
+      <td>Тир</td>
+      <td></td>
+  </tr>
+  <tr>
+      <td>Поля(властивості)</td>
+      <td>Масив, у якому зберігається поле з зайцями</td>
+  </tr>
+  <tr>
+      <td>Методи (дії)</td>
+      <td>Метод пострілу (задається позиція пострілу). Виведення ігрового поля</td>
+  </tr>
+  </table>
+<br><br>
+      <script>
+
+let range = {
+    //----- Сформувати поле гри (одновимірний масив із розміщеними зйцями)
+       getRandomNum : function(minValue, maxValue) {
+       return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+       },
+
+      getFreeCell: function(gameField) {
+      let hareIndex
+      const lastIndex = gameField.length - 1
+      do {
+        hareIndex = this.getRandomNum(0, lastIndex)
+      } while (gameField[hareIndex] === 1)
+      return hareIndex
+    },
+
+    createGameField: function(cellsNumber, hareNumber) {
+    const gameField = new Array(cellsNumber).fill(0) //gameField = [0,0,0,0,0]
+      for (let i = 0; i < hareNumber; i++) {
+        let hareIndex = this.getFreeCell(gameField)
+        gameField[hareIndex] = 1
+      } 
+      return gameField
+    },
+  //----- Гра корстувача
+   game: function(gameField, hareNumber) {
+    do {
+      const userStrikePosition =
+        parseInt(prompt(`Куди стріляємо (1-${gameField.length})?`)) - 1
+
+      if (gameField[userStrikePosition] === 1) {
+        hareNumber--
+        alert('Попали')
+        gameField[userStrikePosition] = 0
+      } else alert('Промазав!')
+    } while (hareNumber > 0)
+  } 
+}
+
+
+let gameField = range.createGameField(10,3)
+document.write(gameField)
+range.game(gameField, 3)
+    </script>
+</body>
+</html>

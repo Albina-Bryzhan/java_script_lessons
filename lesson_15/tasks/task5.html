@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/tasks/css/styles.css">
+   <title>Task #5</title>
+</head>
+<body>
+  <h1>Задача 5</h1>
+  <p>Розробити клас «Керівник танців»</p>
+   <table>
+<tr>
+   <td>Поля(властивості)</td>
+   <td>Масив імен хлопців <br>
+   Масив імен дівчат</td>
+</tr>
+<tr>
+   <td>Методи (дії)</td>
+   <td>Метод випадкового вибору імені хлопця<br>
+   Метод випадкового вибору імені дівчини<br>
+   Метод виведення пари для танців<br>
+   Метод run , який ініціює через кожні 5 секунд виведення нової пари для танців</td>
+</tr>
+</table>
+  <br><br>
+
+  <script>
+class danceDirector{
+   constructor(){
+      this.boysNamesList = ['Nazar', 'Kostya', 'Oleg', 'Vlad', 'Stas', 'Gnat', 'Vasyl']
+      this.girlsNamesList = ['Polly', 'Yasya', 'Olena', 'Hanna', 'Svitlana', 'Iryna', 'Daryna'] 
+   }
+
+   getRandomBoy(){
+      const randomIndex = Math.floor(
+      Math.random() * this.boysNamesList.length
+      )
+      return this.boysNamesList[randomIndex]
+   }
+   getRandomGirl(){
+      const randomIndex = Math.floor(
+      Math.random() * this.girlsNamesList.length
+      )
+      return this.girlsNamesList[randomIndex]
+   }
+   
+   run() {
+      setInterval(() => {
+      alert(`pair: ${this.getRandomBoy()} and ${this. getRandomGirl()}`)
+      }, 5000)
+   }
+  
+}
+
+let pair = new danceDirector()
+pair.run()
+
+
+  </script>
+      
+</body>
+</html>

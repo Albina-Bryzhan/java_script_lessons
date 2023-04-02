@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/tasks/css/styles.css">
+   <title>Task #4</title>
+</head>
+<body>
+  <h1>Задача 4</h1>
+   <p>  Розробити клас MultChecker для перевірки таблиці множення</p>
+  <p>  Розробити клас Banner</p>
+   <table>
+<tr>
+   <td>Поля(властивості)</td>
+   <td>Масив об’єктів ( графічних зображень та посилань на сайти)</td>
+</tr>
+<tr>
+   <td>Методи (дії)</td>
+   <td>Метод випадкового вибору об’єкта (графічного зображення та посилання)<br>
+   Метод виведення випадкового банера</tr>
+</table>
+  <br><br>
+
+  <script>
+
+class Banner {
+   constructor(banner, link) {
+      this.banner = banner
+      this.link = link
+   }
+   getRandomBanner(minV, maxV) {
+      return Math.floor(Math.random() * (maxV - minV + 1)) + minV
+   }
+   toString() {
+      return `<a href="${this.link}"><img src="${this.banner}" alt=""></a>`
+   }
+}
+   let bannerList = [
+      banner1 = new Banner(`/img/1.jpg`, `https://www.joesnewbalanceoutlet.com/`),
+      banner2 = new Banner(`/img/2.jpg`, `https://www.6pm.com/`),
+      banner3 = new Banner(`/img/3.jpg`, `https://www2.hm.com/en_gb/ladies.html`),
+      banner4 = new Banner(`/img/4.jpg`, `https://ua.iherb.com/`)
+   ]
+ 
+   let number = bannerList[0].getRandomBanner(0, (bannerList.length - 1))
+   document.write(bannerList[number])
+
+
+  </script>
+      
+</body>
+</html>
