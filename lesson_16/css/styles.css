@@ -1,0 +1,75 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:regular500,700,900&display=swap);
+
+body{
+   font-family: "Roboto", sans-serif;
+   color: #424551;
+   font-size: 16px;
+   background: linear-gradient(90deg, #ceebd8,#b9dfda,#f5c1cf);
+}
+
+.wrapper{
+   overflow: hidden;
+   position: relative;
+	min-height: 100%;
+
+	display: flex;
+   flex-direction: column; 
+}
+.wrapper > main{
+   flex-grow: 1;
+}
+/* ===================================== */
+/* Обмежуючий контейнер */
+[class*="__container"]{
+   max-width: 1260px;
+   margin: 0 auto;
+   padding-left: 15px;
+   padding-right: 15px;
+}
+/* ===================================== */
+.page {
+  
+}
+.page__main{ }
+.main-page {
+   padding: 20px;
+}
+.main-page__container{
+} 
+.main-page__title{
+   font-size: 25px;
+   line-height: 1.2;
+   font-weight: 700;
+   text-transform: uppercase;
+   margin-bottom: 20px;
+}
+.main-page__link:hover{
+   text-decoration: underline;
+}
+.main-page__link{
+   color: rgb(197, 51, 136);
+   line-height: 1.9;
+}
+.main-page__list{
+   margin-bottom: 8px;
+}
+.main-page__item:not(:last-child){
+   margin-bottom: 15px;
+}
+.main-page__item p{
+   line-height: 1.5;
+}
+
+
+table{
+   border: 1px grey solid;
+}
+td{
+   border: 1px grey solid;
+   padding: 10px;
+}
+tr{
+   border: 1px grey solid;
+}
+
+   

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/tasks/css/styles.css">
+   <title>Task #2</title>
+</head>
+<body>
+  <h1>Задача 2</h1>
+<p>Створити клас TMoney для роботи з грошовими сумами. Сума повинна зберігатися у вигляді доларового еквіваленту. Реалізувати методи додавання/вилучення грошової маси, вказуючи необхідну суму у гривнях, та визначення курсу долара, при якому сума у гривнях збільшиться на 100. Курс долара зберігати в окремому полі.</p>
+<br>
+      <!--  Не зрозуміла оцей кусок умови задачі:  та визначення курсу долара, при якому сума у гривнях збільшиться на 100-->
+      
+      <script>
+
+class TMoney{
+      //1
+       #dollarRate 
+
+      constructor(dollarRate, userDollarAccount){
+      this.userDollarAccount = userDollarAccount
+      this.#dollarRate = dollarRate
+      
+      }
+
+      //2
+      get DollarRate(){
+      return this.#dollarRate
+      }
+
+      get UserDollarAccount(){
+      return this.userDollarAccount
+      }
+
+      // 3
+     
+      set UserDollarAccount(val){
+          if (val < 0) throw new Error('Немає стільки коштів на рахунку')  
+          this.userDollarAccount = val
+      }
+
+      addMoney(val){
+          if (val > 0) 
+          val = val / this.DollarRate
+          this.userDollarAccount += val 
+      }
+      subtractionMoney(val){
+           val = val / this.DollarRate
+            if (val > 0 &&  val <= this.UserDollarAccount)
+            this.userDollarAccount -= val 
+            else throw new Error ('Сума, яку ви хочете зняти вище за ваш баланс.')
+      }
+      
+       toString() {
+          return `Курс долара: ${this.DollarRate}грн.,  баланс: ${Math.round(this.UserDollarAccount)}$`
+      }
+}
+
+Money = new TMoney(38, 1000)
+document.write(Money)
+document.write('<br><br>')
+
+Money.UserDollarAccount = 3000
+document.write(`Змінені значення: ${Money}`)
+document.write('<br><br>')
+
+money = 2000
+Money.addMoney(money)
+document.write(`Внесено грошей: ${money}грн. ${Money}`)
+document.write('<br><br>')
+
+moneyMinus = 5000
+Money.subtractionMoney(moneyMinus)
+document.write(`Знято з рахунку: ${moneyMinus}грн. ${Money}`)
+document.write('<br><br>')
+
+
+    </script>
+</body>
+</html>
