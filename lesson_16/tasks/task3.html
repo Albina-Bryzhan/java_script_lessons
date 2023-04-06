@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/tasks/css/styles.css">
+   <title>Task #3</title>
+</head>
+<body>
+  <h1>Задача 3</h1>
+<p>  Об’єкт “Фірма” (використати члени-класи)</p>
+  <table>
+<tr>
+  <td>Поля(властивості)</td>
+  <td>назва фірми;<br>
+  дата заснування (рік, місяць);<br>
+  послуги (назва послуги, вартість, термін виконання);<br>
+  адреси філіалів (країна, місто, вулиця, номер будинку);</td>
+</tr>
+<tr>
+  <td>Методи (дії)</td>
+  <td>визначення кількості років існування фірми;<br>
+  виведення всіх філіалів фірми у вказаному місті;<br>
+  виведення на екран послуг, що можуть бути виконані за вказану суму грошей та вказаний термін часу</td>
+</tr>
+</table>
+<br><br>
+
+<script>
+
+class Company{
+    constructor(companyName, foundationYear, foundationMonth){
+      this.companyName = companyName
+      this.foundationYear = foundationYear
+      this.foundationMonth =  foundationMonth
+    }
+    getCompanyAge(currentYear, currentMonth){
+     let findYear = currentYear - this.foundationYear
+     let findMonth = currentMonth - this.foundationMonth 
+     if (findMonth < 0) {
+          findYear--
+          findMonth += 12
+        }
+      return [`${findYear} років та ${findMonth} місяць(ів)`]
+  }
+  toString(){
+    return `1) Фірма '${this.companyName}' існує ${this.getCompanyAge(2023, 4)}`
+  }
+}
+let company = new Company('Studio', 1996, 5)
+document.write(company)
+document.write(`<br>`)
+
+class Branches{
+  constructor(country, city, street, number){
+    this.country = country
+    this.city = city
+    this.street = street
+    this.number = number
+  }
+  getBranchesInTheCity(city){
+    if(city === this.city)
+    return [`${this.country}, ${this.city}, ${this.street}, ${this.number}`]
+  }
+ 
+   toString(){
+    return `${this.getBranchesInTheCity('Kharkiv')} <br>`
+  }
+}
+document.write(`<br>`)
+let branch_1 =  new Branches('Ukraine', 'Kharkiv', 'Sumskaya', 5)
+let branch_2 =  new Branches('Ukraine', 'Kharkiv', 'Poltavskiy Shlyah', 13)
+let branch_3 =  new Branches('Ukraine', 'Lviv', 'Lychakivska', 55)
+document.write(`2) У вказаному місті Kharkiv існують філіали за такими адресами: <br> * ${branch_1} * ${branch_2} * ${branch_3} `)
+document.write(`<br>`)
+
+class Services{
+  constructor(serviceName, servicePrice, executionTerm){
+    this.serviceName = serviceName
+    this.servicePrice = servicePrice
+    this.executionTerm = executionTerm
+  }
+ getService(money, term){
+  if(this.servicePrice <= money && term >= this.executionTerm)
+  return [`${this.serviceName}`]
+ }
+  toString(){
+    return `${this.getService(150, 5)} <br>`
+  }
+}
+let service1 = new Services('photoSession', 1000, 1)
+let service2 = new Services('photoDesign', 100, 3)
+let service3 = new Services('photoPrint', 15, 1)
+document.write(`3) Послуги, що можуть бути виконані за вказану суму грошей та вказаний термін часу: <br> * ${service1} * ${service2} * ${service3} `)
+document.write(`<br>`)
+
+
+
+</script>
+
+</body>
+</html>

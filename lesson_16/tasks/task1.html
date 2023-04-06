@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/tasks/css/styles.css">
+   <title>Task #1</title>
+</head>
+<body>
+  <h1>Задача 1</h1>
+  <p>  Створити клас TDate для роботи із датами у форматі “день.місяць.рік”. Дата представляється структурою із трьома полями. Реалізувати методи збільшення/зменшення дати на певну кількість днів, місяців чи років. Введення та виведення дати реалізувати за допомогою методу toString.</p>
+  <br>
+
+      <script>
+
+class TDate{
+  constructor(day, month, year){
+    this.day = day
+    this.month = month
+    this.year = year
+  }
+
+  increaseDate(day, month, year) {
+    const newDay = ((this.day - 1 + day) % 30) + 1
+    const newMonth = ((this.month - 1 + month) % 12) + 1
+    const newYear = this.year + year
+    return `<br>день: ${newDay} <br> місяць: ${newMonth} <br> год: ${newYear}`
+  }
+  decreaseDate(day, month, year){
+    let newDay = this.day - day
+      if (newDay < 0) {
+        newDay = 30 + newDay 
+      }
+      let newMonth = this.month - month
+      if (newMonth <= 0) {
+        newMonth = 12 + newMonth
+      }
+      const newYear = this.year - year
+      return `<br>день: ${newDay} <br> місяць: ${newMonth} <br> год: ${newYear}`
+  }
+
+  toString() {
+    return `<br>Початкова дата: <br> день: ${this.day} <br> місяць: ${this.month} <br> год: ${this.year}<br><br>
+    Збільшення дати (3, 5, 8):
+    ${this.increaseDate(3, 5, 8)} <br><br>
+    Зменьшення дати (4, 4, 6):
+     ${this.decreaseDate(4, 4, 6)} <br><br>`
+  }
+}
+const tDate = new TDate(1, 1, 2000)
+document.write(tDate)
+
+
+
+    </script>
+</body>
+</html>
