@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/tasks/css/styles.css">
+   <title>Task #7</title>
+</head>
+<body>
+  <h1>Задача 7</h1>
+<p class="text">Подорож складається з 3 етапів. На кожному етапі користувач може вибрати один з видів транспорту (авто, автобус, літак - випадаючий список), харчування (сніданок, обід, вечеря – checkbоx) та одного з 3-х гідів(використати - radio buttons). Ціни визначте самі. Підрахувати загальну вартість.</p>
+<br>
+<h2>Подорож</h2>
+
+<div class="select__field">
+   <label>
+      Види транспорту
+      <select class="transport__type">
+         <option value="200">авто (200)</option>
+         <option value="800">автобус (800)</option>
+         <option value="3600">літак(3600)</option>
+      </select>
+   </label>
+</div>
+
+<div>Виберіть харчування</div>
+ <div class="checkbox">
+   <input class="checkbox__input" id="breakfast" required  name="food" type="checkbox" value="150">
+   <label class="checkbox__lable" for="breakfast"><span class="checkbox__text"> Сніданок (150)</span></label> 
+   <input class="checkbox__input" id="dinner" required  name="food" type="checkbox" value="300">
+   <label class="checkbox__lable" for="dinner"><span class="checkbox__text">Обід(300)</span></label> 
+   <input class="checkbox__input" id="supper" required  name="food" type="checkbox" value="400">
+   <label class="checkbox__lable" for="supper"><span class="checkbox__text">Вечеря(400)</span></label> 
+</div>
+
+<div>Виберіть одного з 3-х гідів</div>
+   <div class="form__box">
+      <div class="form__radio">
+         <input class="form__input" id="guide-01" value="200" required name="guides" type="radio">
+         <label class="form__lable" for="guide-01"> <span class="form__text--radio"> Марія(200)</span></label>
+      </div>
+      <div class="form__radio">
+         <input class="form__input" id="guide-02" value="250" required name="guides" type="radio">
+         <label class="form__lable" for="guide-02"><span class="form__text--radio">Іван(250)</span></label>
+      </div>
+      <div class="form__radio">
+         <input class="form__input" id="guide-03" value="190" required name="guides" type="radio">
+         <label class="form__lable" for="guide-03"><span class="form__text--radio">Павло(190)</span></label>
+      </div>
+   </div>
+    
+      
+    <div>
+      <button>Розрахувати загальну вартість подорожі</button>
+    </div>
+    <div>Загалом : <span id="result"></span></div>
+<script src="js/script_task7.js"></script>
+      
+</body>
+</html>
