@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task #1</title>
+   <style>
+body{
+  padding-left: 50px;
+   background: linear-gradient(90deg, #ceebd8,#b9dfda,#f5c1cf);
+}
+h1{
+  color: #540757;
+}
+   </style>
+   
+</head>
+<body>
+   <h1>Date: (рішення в консолі)</h1>
+   <p>1) Користувач іде у відпустку на 56 днів. Визначити дату на момент його повернення.</p>
+   <p>2) Дано дата виробництва йогурта (вводимо рік, місяць, день) та кількість днів придатності. Визначити чи є він придатним на даний момент.</p>
+   <p>3) Сформувати масив з 1000 елементів від 1 до 800. Порівняти час сортування бульбашкою і  вставкою.</p>
+   <p>4) Задаємо користувачу задачу з додавання двох чисел. Визначити скільки секунд було використано для розв’язання задачі</p>
+
+   <script>  
+// ----------Task1----------------
+//  Користувач іде у відпустку на 56 днів. Визначити дату на момент його повернення.
+   function getVacationsEnd(date, daysQnt) {
+        return new Date(date.setDate(date.getDate() + daysQnt))
+      }
+      const currentDate = new Date()
+      let vacationsEnd = getVacationsEnd(currentDate, 56)
+      console.log(`1) Початок відпустки: ${currentDate}`)
+      console.log(`1) Кінець відпустки: ${vacationsEnd.toLocaleDateString()}`)
+// ----------------------------------------------
+
+// ----------Task2----------------
+ //Дано дата виробництва йогурта (вводимо рік, місяць, день) та кількість днів придатності. Визначити чи є він придатним на даний момент.
+  
+   function bbDate(year, month, day, storageDays){
+      const dateOfManufacture = new Date(year, month - 1, day)
+      const currentDate = new Date()
+      endBBDate = Math.floor((currentDate - dateOfManufacture)/(1000 * 60 * 60 * 24))
+      if(endBBDate <= storageDays)
+      console.log('2) Йогурт придатний')
+      else
+      console.log('2) Йогурт не придатний.')
+   }
+   // let year = parseInt(prompt('Year'))
+   // let month = parseInt(prompt('month')) //1-12
+   // let day = parseInt(prompt('DAY'))
+   let bbD = bbDate(2023, 4, 23, 7)
+
+// / ----------Task3----------------
+ // Сформувати масив з 1000 елементів від 1 до 800. Порівняти час сортування бульбашкою і  вставкою.
+   // генеруємо рандомне число від 
+   function getRandomNum(minValue, maxValue) {
+      return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+   }
+   // генеруємо масив з цих рандомних чисел
+   function getRandomArray(elementQuontity, minValue, maxValue) {
+   const arr = []
+   for (let i = 0; i < elementQuontity; i++) {
+      const randNum = getRandomNum(minValue, maxValue)
+      arr.push(randNum)
+   }
+   return arr
+}
+// Функція сортування бульбашкою
+ function getSortArrayBubbleMethod(array) {
+  let exchanged
+  do {
+      exchanged = false
+      for (let i = 1; i < array.length; i++) {
+          if (array[i - 1] > array[i]) {
+              let temp = array[i - 1]
+              array[i - 1] = array[i]
+              array[i] = temp
+              exchanged = true
+          }
+      }
+  } while (exchanged);
+}
+// Функція сортування вставкою
+function getSortArrayByInsertMethod(array){
+   for (let k = 1; k < array.length; k++) {
+      let currentElement = array[k]
+      let i = k - 1
+      while (i >=0 && array[i] > currentElement){
+         array[i + 1] = array[i]
+         i = i - 1
+      }
+       array[i + 1] = currentElement
+   }
+}
+// виводимо рузультат
+const array =  getRandomArray(1000, 1, 800)
+let startSortArrayBubbleMethod = new Date()
+const sortArrayByBubbleMethod = getSortArrayBubbleMethod(array)
+let endSortArrayBubbleMethod = new Date()
+let milisecCountOfSortinngBubbleMethod = endSortArrayBubbleMethod - startSortArrayBubbleMethod
+console.log(`3) На сортування масиву методом бульбашки використано ${milisecCountOfSortinngBubbleMethod} мс`);
+
+const array2 =  getRandomArray(1000, 1, 800)
+let startSortArrayByInsertMethod = new Date()
+const sortArrayByInsertMethod = getSortArrayByInsertMethod(array2)
+let endSortArrayByInsertMethod = new Date()
+let milisecCountOfSortinngByInsertMethod = endSortArrayByInsertMethod - startSortArrayByInsertMethod
+console.log(`3) На сортування масиву методом вставки використано ${milisecCountOfSortinngByInsertMethod} мс`);
+
+// / ----------Task4----------------
+// Задаємо користувачу задачу з додавання двох чисел. Визначити скільки секунд було використано для розв’язання задачі
+function getSum (a, b){
+   return a + b
+}
+
+let startOfSolving = new Date()
+parseInt(prompt('Введіть суму двох чисел 26 + 18 ='))
+let sum = getSum (26, 18)
+let endOfSolving = new Date()
+let timeForSolving = (endOfSolving - startOfSolving) / 1000
+console.log(`4) На вирішення задачі використано ${timeForSolving} сек`);
+
+   </script>
+</body>
+</html>

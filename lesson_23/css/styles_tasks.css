@@ -1,0 +1,42 @@
+table{
+   border: 1px grey solid;
+}
+td{
+   border: 1px grey solid;
+   padding: 10px;
+}
+tr{
+   border: 1px grey solid;
+}
+body{
+   background: linear-gradient(90deg, #e4c2ec,#b5e7e1,#7ed4bf);
+}
+h1, h2{
+   color: #540757;
+}
+/* task 1 */
+.cards{
+   display: flex; 
+}
+.card__container {
+   width: 200px;
+   margin: 10px;
+}
+.sticker__container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.img__container {
+   width: 150px;
+   height: 150px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.card__image {
+   width: 130px;
+}
+.card__title {
+   text-align: center;
+}

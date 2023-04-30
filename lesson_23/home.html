@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+    <script>
+      // ---------------Date----------------------
+      // Задача. Визначити привітання у залежності від часу доби (Доброго дня, Доброго ранку, Доброго вечора)
+      // function getInvitation(date) {
+      //   const hours = date.getHours()
+      //   if (hours <= 11) return 'Good morning!'
+      //   if (hours <= 16) return 'Good afternoon!'
+      //   else return 'Good evening!'
+      // }
+      // const currentDate = new Date()
+      // const message = getInvitation(currentDate)
+      // alert(message)
+
+      // Задача. Вивести дату у форматі: (місяць – рік – вихідний/робочий)
+      // function isWorkingDay(date) {
+      //   //Знаходимо номер дня тижня
+      //   const dayNum = date.getDay()
+      //   //0- неділя, 6 - субота
+      //   return dayNum !== 0 && dayNum !== 6
+      // }
+      // function getFormatedDate(date) {
+      //   const year = date.getFullYear()
+      //   const month = date.getMonth()
+      //   const dayType = isWorkingDay(date) ? 'робочий' : 'вихідний'
+      //   return `${month + 1} - ${year} - ${dayType}`
+      // }
+
+      // const currentDate = new Date()
+      // const message = getFormatedDate(currentDate)
+      // alert(message)
+
+      // Задача. Визначити поточну пору року
+      // function getSeason(date) {
+      //   const month = date.getMonth() + 1
+      //   let season
+      //   switch (month) {
+      //     case 1:
+      //     case 2:
+      //     case 12:
+      //       season = 'Winter'
+      //       break
+      //     case 3:
+      //     case 4:
+      //     case 5:
+      //       season = 'Spring'
+      //       break
+      //     case 6:
+      //     case 7:
+      //     case 8:
+      //       season = 'Summer'
+      //       break
+      //     case 9:
+      //     case 10:
+      //     case 11:
+      //       season = 'Fall'
+      //       break
+      //   }
+      //   return season
+      // }
+      // const currentDate = new Date()
+      // const message = getSeason(currentDate)
+      // alert(message)
+
+      // Задача. Вивести назву дня
+      // Задача. Користувач вводить дату народження. Визначити, скільки йому повних років.
+      // function getAge(year, month, day) {
+      //   const birthDate = new Date(year, month - 1, day)
+      //   const currentDate = new Date()
+      //   const diff = currentDate - birthDate
+      //   return Math.floor(diff / (1000 * 60 * 60 * 24 * 365))
+      // }
+      // let year = parseInt(prompt('Year'))
+      // let month = parseInt(prompt('month')) //1-12
+      // let day = parseInt(prompt('DAY'))
+      // let age = getAge(year, month, day)
+      // alert(age)
+
+      // Задача. Користувач іде у відпустку на 56 днів. Визначити дату на момент його повернення.
+      // Задача. Користувач бере авто на вказану кількість годин. Визначити кінцевий час повернення.
+      // function getExpDate(date, rentHours) {
+      //   return new Date(date.setHours(date.getHours() + rentHours))
+      // }
+
+      // let rentHours = parseInt(prompt('rent hours'))
+      // const currentDate = new Date()
+      // let expDate = getExpDate(currentDate, rentHours)
+      // console.log(expDate)
+      // alert(expDate.toLocaleTimeString())
+
+
+    //  ---------------String--------------------
+     //Задача. Вивести на екран символ
+      //https://en.wikipedia.org/wiki/List_of_Unicode_characters
+      //alert('\u270C')
+      // alert('\u2764')
+      //-----------------------------------------------
+      //Задача. Дано ім’я користувача, стать і вік. З використанням шаблонів вивести на екран рядок за шаблоном
+      // `{пан/пані}  {ім’я}  : {пенсіонер/не пенсіонер}`
+      // function getMessage(fixedParts, gender, name, age) {
+      //   const genderLabel = gender === 'm' ? 'пан' : 'пані'
+      //   const pensionerTitle =
+      //     (gender === 'm' && age >= 65) || (gender === 'w' && age >= 60)
+      //       ? 'пенсіонер'
+      //       : 'не пенсіорен'
+      //   return `${genderLabel}${fixedParts[0]}${name}${fixedParts[1]}${pensionerTitle}`
+      // }
+      // let userName = 'Ivan'
+      // let gender = 'm'
+      // let age = 31
+      // let message = getMessage`${gender} ${userName}  : ${age}`
+      // alert(message)
+      //-----------------------------------------------
+      // Задача. Користувач вводить логін. Перевірити правильність логіна('winner') (регістр не враховується)
+      // const correctLogin = 'winner'
+      // const login = prompt('Login')
+      // if (login.toLowerCase() === correctLogin.toLowerCase()) alert('Ok')
+      // else alert('Error')
+      //-----------------------------------------------
+      // Задача. Отримати першу і другу половину введеного рядка
+      // let s = 'Hello world'
+
+      // let firstPart = s.substring(0, s.length / 2)
+      // let lastPart = s.slice(s.length / 2)
+      // console.log(`S = ${s}`)
+      // console.log(`Length: ${s.length}`)
+      // console.log(`First: ${firstPart}`)
+      // console.log(`Last: ${lastPart}`)
+      //-----------------------------------------------
+      //-----------------------------------------------
+      //Задача. Дано адресу сайту. Перевірити, чи є він з шифруванням (починаєтсья з «https»)
+      //-----------------------------------------------
+      // let url = 'https://test.test'
+      // if (url.toLowerCase().startsWith('https')) alert('ok')
+      // else alert('Danger')
+      // Задача. Дано адресу сайту. Перевірити, чи закінчується шлях з «edu».
+      // let url = 'https://test.test.edu'
+      // if (url.endsWith('edu')) alert('ok')
+      // else alert('Danger')
+      //-----------------------------------------------
+      //-----------------------------------------------
+      // Задача. Користувач вводить текст. Визначити, чи є там цифри і отримати список усіх цифр.
+      // let str = 'Anna is 10, and she has 20 friends'
+      // if (/[0-9]/.test(str)) {
+      //   let didgits = str.match(/[0-9]/g)
+      //   alert(didgits)
+      //   console.log(didgits)
+      // } else alert('mo digits')
+
+      //-----------------------------------------------
+      //Задача. Рякдо тексту, у якому згадуються різні моделі автомобілів.
+      // «Іван Opel купив , а Оленка Audi. Їх товариш купив Mersedes. На підприємстві ж є Toyota, Nissan та Volkswagen»
+      // Визначити чи є «BMW» там або «Audi». Та сформувати список усіх таких авто.
+      // let str =
+      //   'Іван Opel купив , а Оленка Audi. Їх товариш купив Mersedes. На підприємстві ж є Toyota, Nissan та Volkswagen'
+      // if (/(BMW|Audi)/.test(str)) {
+      //   let autoList = str.match(/(BMW|Audi|Nissan)/g)
+      //   alert(autoList)
+      // } else alert('no such cars')
+      //-----------------------------------------------
+      //-----------------------------------------------
+      // Задача. Дано повідомлення від користувача. Визначити, чи є всередині (не на початку і не у кінці) повідомлення рік,
+      // що починається з «19».
+      // let str = 'In 1987 we found 19 dogs and 21904 cats'
+      // if (/\D19\d{2}\D/.test(str)) {
+      //   let list = str.match(/\D19\d{2}\D/g)
+      //   alert(list)
+      // } else alert('no')
+      // //-----------------------------------------------
+      // // Задача. Дано повідомлення від користувача. Визначити, чи є у середині (не на початку і не у кінці) повідомлення
+      // номер телефону форматі    «0-800-***-***» (приклад: 0-800-500-415).
+      // let str = 'I call 0-800-500-415 every day, but 0-800-500-789 is better'
+      // if (/\D0-800-\d{3}-\d{3}\D/.test(str)) {
+      //   let list = str.match(/\D0-800-\d{3}-\d{3}\D/g)
+      //   alert(list)
+      // } else alert('no')
+      //-----------------------------------------------
+      // Задача. Дано повідомлення від користувача. Визначити, чи є у повідомленні
+      // номер телефону форматі    «0-800-***-***» (приклад: 0-800-500-415).
+      // let str = 'I call 0-800-500-415 every day, but  is better 0-800-500-789'
+      // if (/\b0-800-\d{3}-\d{3}\b/.test(str)) {
+      //   let list = str.match(/\b0-800-\d{3}-\d{3}\b/g)
+      //   alert(list)
+      // } else alert('no')
+
+    </script>
+</head>
+<body>
+   
+</body>
+</html>
